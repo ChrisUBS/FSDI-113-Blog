@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
 
 {% block title %}New Post{% endblock title %}
 
@@ -10,7 +11,7 @@
             {% if user.is_authenticated %}
             <form method="POST" class="mt-4">
                 {% csrf_token %}
-                {{ form.as_p }}
+                {{ form | crispy }}
                 <input type="submit" class="btn btn-success" value="New">
             </form>
             {% else %}
